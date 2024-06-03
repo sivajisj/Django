@@ -57,7 +57,20 @@ def create_record(request):
     return render(request, 'webapp/create-record.html', context)
 
 @login_required(login_url='login')
-def update_record(request):
+def update_record(request, pk):
+    record = Record.objects.get(id=pk)
+    if request.method == 'POST':
+        form = UpdateRecordForm(request.POST,instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard")
+    else:
+        form = UpdateRecordForm(instance=record)
+        context = {'form': form}
+    return render(request, 'webapp/update-record.html',context)
     
-    pass
-    
+@login_required(login_url='login')    
+def view_record(request,pk):
+    record = Record.objects.get(id=pk)
+    context = {'record':record}
+    return render(request, 'webapp/view-record.html',context)
