@@ -5,6 +5,8 @@ asgiref==3.8.1
 asttokens==2.4.1
 attrs==23.2.0
 beautifulsoup4==4.12.2
+django-bootstrap4==22.3
+django-crispy-forms==2.0
 blinker==1.7.0
 Bootstrap-Flask==2.2.0
 bs4==0.0.2

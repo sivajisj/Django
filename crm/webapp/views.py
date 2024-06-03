@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserCreationForm, LoginUserForm
+from .forms import UserCreationForm, LoginUserForm, AddRecordForm, UpdateRecordForm
 from django.contrib.auth import login,authenticate, logout
 from django.contrib.auth.decorators import login_required
 from .models import Record
@@ -45,4 +45,19 @@ def user_logout(request):
         logout(request)
     return redirect("home-page")
 
+@login_required(login_url='login')
+def create_record(request):
+    form = AddRecordForm()
+    if request.method == 'POST':
+        form = AddRecordForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    context = {'form': form}
+    return render(request, 'webapp/create-record.html', context)
 
+@login_required(login_url='login')
+def update_record(request):
+    
+    pass
+    
