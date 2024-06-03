@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import UserCreationForm, LoginUserForm
 from django.contrib.auth import login,authenticate, logout
 from django.contrib.auth.decorators import login_required
+from .models import Record
 # Create your views here.
 
 def home(request):
@@ -34,7 +35,9 @@ def login_view(request):
 # Dashboard
 @login_required(login_url='login') 
 def dashboard(request):
-    return render(request, 'webapp/dashboard.html')
+    my_record = Record.objects.all()
+    context = {'records' : my_record}
+    return render(request, 'webapp/dashboard.html',context)
 
 
 def user_logout(request):

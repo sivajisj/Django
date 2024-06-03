@@ -3,4 +3,11 @@
 
 {% block content %}
 <h1>Welcome to the dashboard page!  <b>{{request.user}}</b></h1>
+
+
+{% for record in records %}
+<p>{{ record.first_name}}  {{ record.first_name}}</p>
+<p>{{record.city}}</p>
+<hr>
+{% endfor %}
 {% endblock content %}
