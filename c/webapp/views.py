@@ -46,7 +46,8 @@ def user_logout(request):
     return redirect("home-page")
 
 @login_required(login_url='login')
-def create_record(request):
+def update_record(request,pk):
+    record = Record.objects.get(id=pk)
     
-    pass
+    
     

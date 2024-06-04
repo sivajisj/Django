@@ -2,10 +2,10 @@
 
 
 {% block content %}
-<h5>Welcome to the dashboard page  <b>{{request.user}}</b></h5>
+<h5>Welcome to the dashboard page  <b>👋{{request.user}}</b></h5>
 <hr>
 
-<a href="{% url 'create-record' %}" class="btn btn-outline-primary btn-sm hover">Create a new record</a>
+<a href="{% url 'create-record' %}" class="btn btn-outline-primary btn-sm hover">Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
 
 <hr>
 
@@ -40,7 +40,7 @@
     <td>{{record.province}}</td>
     <td>{{record.country}}</td>
     <td>{{record.created}}</td>
-    <td><a href="{% url 'record' record.id %}">show</a></td>
+    <td><a href="{% url 'record' record.id %}" class="text-decoration-none btn btn-sm btn-success"> &nbsp;  <i class="fa fa-eye" aria-hidden="true"></i></a></td>
 </tr>
 
 {% endfor %}

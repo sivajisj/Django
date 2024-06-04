@@ -1,0 +1,11 @@
+{% extends "webapp/base.html" %}
+
+{% block content %}
+  <h2>Confirm Delete</h2>
+  <p>Are you sure you want to delete the record "{{ record }}"?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">  <i class="fa fa-check-square-o" aria-hidden="true"></i> &nbsp; Confirm</button>
+    <a  class="btn btn-primary" href="{% url 'dashboard' %}"><i class="fa fa-ban" aria-hidden="true"></i> &nbsp;Cancel</a>
+  </form>
+{% endblock %}

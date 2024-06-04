@@ -13,8 +13,8 @@ class CreateUserForm(UserCreationForm):
 
 #  Login form
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(widget=TextInput)
-    password1 = forms.CharField(widget=PasswordInput)
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
 

@@ -3,16 +3,19 @@
 {% block content %}
 
 <div class="card">
-    <strong>
-        {{record.last_name}}
-        {{record.first_name}}
-    </strong>
-
+   
 
 
 
 
     <div class="card-body">
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+        <strong>
+            &nbsp;
+            {{record.last_name}}
+            {{record.first_name}}
+        </strong>
+    <hr>
         <p><strong>ID :</strong>{{record.id}}</p> 
         <p><strong>Email :</strong>{{record.email}}</p> 
         <p><strong>Phone number:</strong>{{record.phone}}</p> 
@@ -24,5 +27,13 @@
     </div>
 </div>
 
-<a href="{% url 'update-record' record.id %}">update</a>
-{% endblock content %}
+<br>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">  <i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp;  Return </a>
+
+
+
+
+<a class="btn btn-info" href="{% url 'update-record' record.id %}">update record &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i></a>
+<a class="btn btn-danger" href="{% url 'delete-record' record.id %}">  delete record &nbsp; <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+{% endblock content %} 
