@@ -15,3 +15,5 @@ urlpatterns = [
     path('record/<int:pk>/', views.view_record,name="record"),
 
 ]
+
+
